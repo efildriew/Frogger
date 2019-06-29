@@ -63,11 +63,9 @@ Trello!
 
 ### Git
 
-URls for the project repo and deploy
-[Link Repo](http://github.com)
-[Link Deploy](http://github.com)
+[Link Repo](https://github.com/efildriew/Frogger)
+[Link Deploy](https://efildriew.github.io/Frogger/)
 
 ### Slides
 
-URls for the project presentation (slides)
 [Link Slides.com](https://slides.com/marcvalles/frogger#/)
