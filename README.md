@@ -4,27 +4,27 @@
 
 Un cuadrado verde avanzará por una carretera con obstaculos moviles e intentará llegar al otro lado.
 
-## MVP (DOM - CANVAS)
+## MVP (CANVAS)
 
 Proyecto en Canvas
 
 Hacer:
 
-- Que el cuadrado verde se mueva a través del grid y llegue al otro lado
-- Que aparezcan en scroll diferentes clases de obstaculos a izquierda y derecha
-- Que al colisionar con un obstaculo se pierda un intento (vidas)
-  . Que al superar las filas de obstaculos y llegue a meta finalice el juego
+- Que el cuadrado verde se mueva a través del grid y llegue al otro lado.
+- Que aparezcan en scroll diferentes clases de obstaculos a izquierda y derecha.
+- Que al colisionar con un obstaculo se pierda un intento (vidas).
+- Que al superar las filas de obstaculos y llegue a meta finalice el juego.
 
 ## Backlog
 
-- Definir los sprites de la rana y de los obstaculos
-- Añadir una parte después de la carretera (un río), donde la rana tiene que cruzar por encima de los obstaculos
-- Cambiar el final del juego, en vez de solamente cruzar, hay que cruzar y ponerse en un sitio concreto
-- Añadir temporizador
-- Añadir puntuación
-- Añadir ciertos objetos random que hacen aumentar la puntuación
-- Conseguir que los obstaculos del río se "hundan" y refloten (tortugas)
-- Cambiar nivel de dificultad, quitando vidas y tiempo
+- Definir los sprites de la rana y de los obstaculos en relación al grid (aumentar el grid o reducir rana/coches).
+- Añadir una parte después de la carretera (un río), donde la rana tiene que cruzar por encima de los obstaculos.
+- Cambiar el final del juego, en vez de solamente cruzar, hay que cruzar y ponerse en un sitio concreto.
+- Añadir temporizador.
+- Añadir puntuación.
+- Añadir ciertos objetos random que hacen aumentar la puntuación.
+- Conseguir que los obstaculos del río se "hundan" y refloten (tortugas).
+- Cambiar nivel de dificultad, quitando vidas y tiempo.
   .
   .
   .
@@ -36,13 +36,29 @@ Clases:
 
 - Rana:
 
-  - A donde mira
-  - Avanzar
+  - Propiedad: dirección a la que mira (para la animación/imagen).
+  - Metodo: Moverse (en todas direcciones. Un método para cada una).
 
-- Coches
-  - Dirección
-  - Velocidad
-  - Frecuencia
+- Coches:
+
+  - Propiedad: Dirección.
+  - Propiedad: Velocidad.
+  - Propiedad: Tamaño.
+  - Metodo: Avanzar.
+
+- Carril:
+
+  - Tipo de vehículo.
+  - Cantidad de vehículos.
+  - Frecuencia de creación.
+  - Creará cada coche y le pasará sus propiedades.
+
+- Game:
+
+  - Pantalla inicial
+  - Pantalla principal de juego
+  - "You win"
+  - "Game over"
 
 ## States y States Transitions
 
