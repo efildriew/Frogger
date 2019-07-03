@@ -16,7 +16,13 @@ class Game {
     this.ctx.fillRect(0, 700, 600, 800);
   }
 
+  _drawFroggy() {
+    this.ctx.fillStyle = "#00FF3C";
+    this.ctx.fillRect(350, 750, 50, 50);
+  }
+
   _start() {
     this._drawBoard();
+    this._drawFroggy();
   }
 }

@@ -1,7 +1,7 @@
 document.onload = (function() {
   const canvas = document.getElementById("frogger");
   const ctx = canvas.getContext("2d");
-  const widthCell = 60;
+  const widthCell = 50;
 
   // Dibujo el fondo
 
@@ -29,9 +29,9 @@ document.onload = (function() {
         columns: canvas.height / widthCell,
         maxCells: widthCell,
         ctx: ctx,
-        froggy: undefined
+        froggy: new Froggy()
       });
-      game._drawBoard();
+      game._start();
     }
   };
 })();
