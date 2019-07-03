@@ -9,6 +9,9 @@ class Froggy {
   moveUp() {
     this.direction = "up";
     this.body.row -= 1;
+    if (this.body.row === 0) {
+      alert("You win!");
+    }
   }
   moveDown() {
     this.direction = "down";
