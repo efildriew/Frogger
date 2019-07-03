@@ -1,15 +1,25 @@
 class Froggy {
   constructor() {
     this.direction = "up";
-    this.body = [
-      {
-        row: 5,
-        column: 12
-      }
-    ];
+    this.body = {
+      column: 6,
+      row: 14
+    };
   }
-  _moveForward() {}
-  _moveBackwards() {}
-  _moveLeft() {}
-  _moveRigth() {}
+  moveUp() {
+    this.direction = "up";
+    this.body.row -= 1;
+  }
+  moveDown() {
+    this.direction = "down";
+    this.body.row += 1;
+  }
+  moveLeft() {
+    this.direction = "left";
+    this.body.column -= 1;
+  }
+  moveRigth() {
+    this.direction = "rigth";
+    this.body.column += 1;
+  }
 }
