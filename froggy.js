@@ -3,7 +3,7 @@ class Froggy {
     this.direction = "up";
     this.body = {
       column: 6,
-      row: 14
+      row: 13
     };
   }
   moveUp() {
@@ -21,7 +21,7 @@ class Froggy {
     this.direction = "left";
     this.body.column -= 1;
   }
-  moveRigth() {
+  moveRight() {
     this.direction = "rigth";
     this.body.column += 1;
   }

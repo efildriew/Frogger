@@ -12,8 +12,8 @@ class Game {
     this.ctx.fillStyle = "#000000";
     this.ctx.fillRect(0, 0, 600, 800);
     this.ctx.fillStyle = "#FF7700";
-    this.ctx.fillRect(0, 0, 600, 100);
-    this.ctx.fillRect(0, 700, 600, 800);
+    this.ctx.fillRect(0, 0, 600, 150);
+    this.ctx.fillRect(0, 650, 600, 800);
   }
 
   _drawFroggy() {
@@ -24,6 +24,14 @@ class Game {
       50,
       50
     );
+  }
+
+  _drawCar() {
+    this.ctx.fillStyle = "red";
+    this.ctx.fillRect(car.row * 50, car.column * 50, car.size, car.size);
+    if (car.row < -2 || car.row > 12) {
+      car.row = 12;
+    }
   }
 
   _controlsToKeys() {
@@ -39,7 +47,7 @@ class Game {
           this.froggy.moveLeft();
           break;
         case 39:
-          this.froggy.moveRigth();
+          this.froggy.moveRight();
           break;
       }
     };
@@ -48,6 +56,8 @@ class Game {
   _update() {
     this._drawBoard();
     this._drawFroggy();
+    this._drawCar();
+    car.move();
     window.requestAnimationFrame(this._update.bind(this));
   }
 
