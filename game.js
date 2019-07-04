@@ -28,9 +28,9 @@ class Game {
 
   _drawCar() {
     this.ctx.fillStyle = "red";
-    this.ctx.fillRect(car.row * 50, car.column * 50, car.size, car.size);
-    if (car.row < -2 || car.row > 12) {
-      car.row = 12;
+    this.ctx.fillRect(car.x * 50, car.y * 50, car.size, car.size);
+    if (car.x < -2 || car.x > 12) {
+      car.x = 12;
     }
   }
 
@@ -57,12 +57,16 @@ class Game {
     this._drawBoard();
     this._drawFroggy();
     this._drawCar();
-    car.move();
+
+    // if (this.froggy.collides(car.x)) {
+    //   alert("you're dead");
+    // }
     window.requestAnimationFrame(this._update.bind(this));
   }
 
   _start() {
     this._controlsToKeys();
+    car.move();
     window.requestAnimationFrame(this._update.bind(this));
   }
 }

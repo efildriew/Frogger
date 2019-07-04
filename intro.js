@@ -32,10 +32,10 @@ document.onload = (function() {
         froggy: new Froggy()
       });
       car = new Car({
-        row: 12,
-        column: 8,
-        speed: 0.05,
-        size: 100,
+        x: 12,
+        y: 8,
+        speed: 100,
+        size: 50,
         direction: "right"
       });
       game._start();

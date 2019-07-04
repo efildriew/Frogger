@@ -22,7 +22,15 @@ class Froggy {
     this.body.column -= 1;
   }
   moveRight() {
-    this.direction = "rigth";
+    this.direction = "right";
     this.body.column += 1;
+  }
+  collides(position) {
+    //   if (
+    //     this.body.row === position.toFixed(0) ||
+    //     this.body.column === position.toFixed(0)
+    //   ) {
+    //     alert("you are dead!");
+    //   }
   }
 }

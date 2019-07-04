@@ -1,16 +1,22 @@
 class Car {
   constructor(options) {
-    this.row = options.row;
-    this.column = options.column;
+    this.x = options.x;
+    this.y = options.y;
     this.speed = options.speed;
     this.size = options.size;
     this.direction = options.direction;
+    this.interval = undefined;
   }
-  move() {
+
+  moveForward() {
     if (this.direction === "left") {
-      this.row += this.speed;
+      this.x += 1;
     } else if (this.direction === "right") {
-      this.row -= this.speed;
+      this.x -= 0.25;
     }
+  }
+
+  move() {
+    this.interval = setInterval(this.moveForward.bind(this), this.speed);
   }
 }
