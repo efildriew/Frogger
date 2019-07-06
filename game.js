@@ -6,6 +6,7 @@ class Game {
     this.ctx = options.ctx;
     this.froggy = options.froggy;
     this.gameOver = undefined;
+    this.interval = setInterval(this._update, 20);
   }
 
   _drawBoard() {
@@ -62,6 +63,10 @@ class Game {
     //   alert("you're dead");
     // }
     window.requestAnimationFrame(this._update.bind(this));
+  }
+
+  _gameOver() {
+    clearInterval(this.interval);
   }
 
   _start() {
