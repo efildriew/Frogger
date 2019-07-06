@@ -6,13 +6,19 @@ class Car {
     this.size = options.size;
     this.direction = options.direction;
     this.interval = undefined;
+    // this.positionX = undefined;
+    // this.positionY = undefined;
   }
 
   moveForward() {
     if (this.direction === "left") {
-      this.x += 1;
+      this.x += 0.25;
+      // this.positionX = this.x + this.size;
+      // this.positionY = this.y + this.size;
     } else if (this.direction === "right") {
       this.x -= 0.25;
+      // this.positionX = this.x + this.size;
+      // this.positionY = this.y + this.size;
     }
   }
 

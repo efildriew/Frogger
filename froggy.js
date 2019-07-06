@@ -25,12 +25,15 @@ class Froggy {
     this.direction = "right";
     this.body.column += 1;
   }
-  collides(position) {
-    //   if (
-    //     this.body.row === position.toFixed(0) ||
-    //     this.body.column === position.toFixed(0)
-    //   ) {
-    //     alert("you are dead!");
-    //   }
+  collides(carPosition) {
+    var froggyLeft = this.body.row * 50;
+    var froggyRight = this.body.row * 50 + 50;
+    var froggyTop = this.body.column * 50;
+    var froggyBottom = this.body.column * 50 + 50;
+
+    var carLeft = carPosition.x;
+    var carRight = carPosition.x + carPosition.size;
+    var carTop = carPosition.y;
+    var carBottom = carPosition.y + carPosition.size;
   }
 }
