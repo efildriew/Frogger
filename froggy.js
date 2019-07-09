@@ -9,7 +9,7 @@ class Froggy {
   moveUp() {
     this.direction = "up";
     this.body.row -= 1;
-    if (this.body.row === 0) {
+    if (this.body.row <= 0) {
       alert("You win!");
     }
   }
@@ -32,9 +32,9 @@ class Froggy {
     var froggyRight = this.body.column * 50;
 
     var carLeft = carPosition.x * 50;
-    var carRight = carPosition.x * 50 + carPosition.size;
+    var carRight = carPosition.x * 50;
     var carTop = carPosition.y * 50;
-    var carBottom = carPosition.y * 50 + carPosition.size;
+    var carBottom = carPosition.y * 50;
 
     if (
       froggyBottom < carTop ||
