@@ -33,7 +33,7 @@ document.onload = (function() {
       });
       car = new Car({
         x: 12,
-        y: 8,
+        y: 10,
         speed: 100,
         size: 50,
         direction: "right"

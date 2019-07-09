@@ -3,9 +3,10 @@ class Froggy {
     this.direction = "up";
     this.body = {
       column: 6,
-      row: 13
+      row: 15
     };
   }
+
   moveUp() {
     this.direction = "up";
     this.body.row -= 1;
@@ -13,6 +14,7 @@ class Froggy {
       alert("You win!");
     }
   }
+
   moveDown() {
     this.direction = "down";
     if (this.body.row === 15) {
@@ -21,6 +23,7 @@ class Froggy {
       this.body.row += 1;
     }
   }
+
   moveLeft() {
     this.direction = "left";
     if (this.body.column === 0) {
@@ -29,6 +32,7 @@ class Froggy {
       this.body.column -= 1;
     }
   }
+
   moveRight() {
     this.direction = "right";
     if (this.body.column === 11) {
@@ -37,6 +41,7 @@ class Froggy {
       this.body.column += 1;
     }
   }
+
   collides(carPosition) {
     var froggyTop = this.body.row * 50;
     var froggyBottom = this.body.row * 50 + 50;

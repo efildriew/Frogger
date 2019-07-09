@@ -8,12 +8,25 @@ class Game {
     this.gameOver = window.requestAnimationFrame;
   }
 
+  _obstacle() {
+    const cars = [];
+
+    setInterval(() => {
+      cars.push(
+        new Car({
+          x: 4
+        })
+      );
+    }, 1000);
+  }
+
   _drawBoard() {
     this.ctx.fillStyle = "#000000";
     this.ctx.fillRect(0, 0, 600, 800);
     this.ctx.fillStyle = "#FF7700";
-    this.ctx.fillRect(0, 0, 600, 150);
-    this.ctx.fillRect(0, 650, 600, 800);
+    this.ctx.fillRect(0, 100, 600, 100);
+    this.ctx.fillRect(0, 450, 600, 50);
+    this.ctx.fillRect(0, 750, 600, 800);
   }
 
   _drawFroggy() {
