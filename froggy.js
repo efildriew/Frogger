@@ -9,21 +9,33 @@ class Froggy {
   moveUp() {
     this.direction = "up";
     this.body.row -= 1;
-    if (this.body.row <= 0) {
+    if (this.body.row < 0) {
       alert("You win!");
     }
   }
   moveDown() {
     this.direction = "down";
-    this.body.row += 1;
+    if (this.body.row === 15) {
+      this.body.row = this.body.row;
+    } else {
+      this.body.row += 1;
+    }
   }
   moveLeft() {
     this.direction = "left";
-    this.body.column -= 1;
+    if (this.body.column === 0) {
+      this.body.column = this.body.column;
+    } else {
+      this.body.column -= 1;
+    }
   }
   moveRight() {
     this.direction = "right";
-    this.body.column += 1;
+    if (this.body.column === 11) {
+      this.body.column = this.body.column;
+    } else {
+      this.body.column += 1;
+    }
   }
   collides(carPosition) {
     var froggyTop = this.body.row * 50;
