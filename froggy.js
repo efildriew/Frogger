@@ -26,14 +26,24 @@ class Froggy {
     this.body.column += 1;
   }
   collides(carPosition) {
-    var froggyLeft = this.body.row * 50;
-    var froggyRight = this.body.row * 50 + 50;
-    var froggyTop = this.body.column * 50;
-    var froggyBottom = this.body.column * 50 + 50;
+    var froggyTop = this.body.row * 50;
+    var froggyBottom = this.body.row * 50;
+    var froggyLeft = this.body.column * 50;
+    var froggyRight = this.body.column * 50;
 
-    var carLeft = carPosition.x;
-    var carRight = carPosition.x + carPosition.size;
-    var carTop = carPosition.y;
-    var carBottom = carPosition.y + carPosition.size;
+    var carLeft = carPosition.x * 50;
+    var carRight = carPosition.x * 50 + carPosition.size;
+    var carTop = carPosition.y * 50;
+    var carBottom = carPosition.y * 50 + carPosition.size;
+
+    if (
+      froggyBottom < carTop ||
+      froggyTop > carBottom ||
+      froggyRight < carLeft ||
+      froggyLeft > carRight
+    ) {
+      return false;
+    }
+    return true;
   }
 }
