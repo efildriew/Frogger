@@ -167,12 +167,12 @@ class Game {
       this.ctx.fillStyle = "red";
       this.ctx.fillRect(car.x * 50, car.y * 50, car.size, 50);
       if (car.direction === "right") {
-        if (car.x < -1 || car.x > 12) {
+        if (car.x < -2 || car.x > 12) {
           car.x = 12;
         }
       }
       if (car.direction === "left") {
-        if (car.x < -1 || car.x > 12) {
+        if (car.x < -2 || car.x > 12) {
           car.x = 0;
         }
       }
@@ -184,12 +184,12 @@ class Game {
       this.ctx.fillStyle = "brown";
       this.ctx.fillRect(tree.x * 50, tree.y * 50, tree.size, 50);
       if (tree.direction === "right") {
-        if (tree.x < -1 || tree.x > 12) {
+        if (tree.x < -5 || tree.x > 12) {
           tree.x = 12;
         }
       }
       if (tree.direction === "left") {
-        if (tree.x < -1 || tree.x > 12) {
+        if (tree.x < -5 || tree.x > 12) {
           tree.x = 0;
         }
       }
@@ -250,7 +250,7 @@ class Game {
       //añadir pantalla de game over
       setTimeout(() => {
         location.reload();
-      }, 5000);
+      }, 3000);
     }
   }
 

@@ -49,7 +49,7 @@ class Froggy {
     var carLeft = carPosition.x * 50;
     var carRight = carPosition.x * 50 + carPosition.size;
     var carTop = carPosition.y * 50 + 50;
-    var carBottom = carPosition.y * carPosition.size;
+    var carBottom = carPosition.y * 50;
 
     if (
       froggyBottom < carTop ||
@@ -71,8 +71,8 @@ class Froggy {
 
     var treeLeft = treePosition.x * 50;
     var treeRight = treePosition.x * 50 + treePosition.size;
-    var treeTop = treePosition.y * 50 + 50;
-    var treeBottom = treePosition.y * 50;
+    var treeTop = treePosition.y * 50;
+    var treeBottom = treePosition.y * 50 + 50;
 
     if (this.body.row < 9 && this.body.row > 3) {
       if (
