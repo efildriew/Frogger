@@ -174,7 +174,8 @@ class Game {
 
       window.requestAnimationFrame(this._update.bind(this));
     } else {
-      this.ctx.clearRect(0, 0, 600, 800);
+      this.ctx.clearRect(200, 200, 200, 400);
+      //añadir pantalla de game over
       window.cancelAnimationFrame(this._update.bind(this));
     }
   }
