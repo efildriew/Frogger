@@ -196,11 +196,13 @@ class Game {
       }
     });
 
-    // trees.forEach(tree => {
-    //   if (this.froggy.isTransportedBy(tree)) {
-
-    //   }
-    // });
+    trees.forEach(tree => {
+      if (this.froggy.isTransportedBy(tree)) {
+        alert("you're dead");
+        this.froggy.body.column = 6;
+        this.froggy.body.row = 15;
+      }
+    });
 
     if (this.froggy.lives > 0) {
       this._drawBoard();

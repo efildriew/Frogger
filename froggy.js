@@ -61,7 +61,6 @@ class Froggy {
     }
     this.lives -= 1;
     return true;
-    // this.body.column = carPosition.x;
   }
 
   isTransportedBy(treePosition) {
@@ -71,16 +70,21 @@ class Froggy {
     var froggyRight = this.body.column * 50 + 50;
 
     var treeLeft = treePosition.x * 50;
-    var treeRight = treePosition.x * 50 + 50;
+    var treeRight = treePosition.x * 50 + treePosition.size;
     var treeTop = treePosition.y * 50 + 50;
     var treeBottom = treePosition.y * 50;
 
-    if (
-      froggyBottom < treeTop ||
-      froggyTop > treeBottom ||
-      froggyRight < treeLeft ||
-      froggyLeft > treeRight
-    ) {
+    if (this.body.row < 9 && this.body.row > 3) {
+      if (
+        froggyBottom < treeTop ||
+        froggyTop > treeBottom ||
+        froggyRight < treeLeft ||
+        froggyLeft > treeRight
+      ) {
+        this.lives -= 1;
+        return true;
+      }
+      this.body.column = treePosition.x;
       return false;
     }
   }
