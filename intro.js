@@ -31,13 +31,13 @@ document.onload = (function() {
         ctx: ctx,
         froggy: new Froggy()
       });
-      car = new Car({
-        x: 12,
-        y: 10,
-        speed: 100,
-        size: 50,
-        direction: "right"
-      });
+      // car = new Car({
+      //   x: 12,
+      //   y: 10,
+      //   speed: 100,
+      //   size: 50,
+      //   direction: "right"
+      // });
       game._start();
     }
   };

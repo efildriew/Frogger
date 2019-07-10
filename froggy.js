@@ -42,25 +42,25 @@ class Froggy {
     }
   }
 
-  collides(carPosition) {
-    var froggyTop = this.body.row * 50;
-    var froggyBottom = this.body.row * 50 + 50;
-    var froggyLeft = this.body.column * 50;
-    var froggyRight = this.body.column * 50 + 50;
+  // collides(carPosition) {
+  //   var froggyTop = this.body.row * 50;
+  //   var froggyBottom = this.body.row * 50 + 50;
+  //   var froggyLeft = this.body.column * 50;
+  //   var froggyRight = this.body.column * 50 + 50;
 
-    var carLeft = carPosition.x * 50;
-    var carRight = carPosition.x * 50 + 50;
-    var carTop = carPosition.y * 50 + 50;
-    var carBottom = carPosition.y * 50;
+  //   var carLeft = carPosition.x * 50;
+  //   var carRight = carPosition.x * 50 + 50;
+  //   var carTop = carPosition.y * 50 + 50;
+  //   var carBottom = carPosition.y * 50;
 
-    if (
-      froggyBottom < carTop ||
-      froggyTop > carBottom ||
-      froggyRight < carLeft ||
-      froggyLeft > carRight
-    ) {
-      return false;
-    }
-    return true;
-  }
+  //   if (
+  //     froggyBottom < carTop ||
+  //     froggyTop > carBottom ||
+  //     froggyRight < carLeft ||
+  //     froggyLeft > carRight
+  //   ) {
+  //     return false;
+  //   }
+  //   return true;
+  // }
 }

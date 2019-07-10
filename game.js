@@ -1,3 +1,45 @@
+const cars = [
+  new Car({
+    x: 12,
+    y: 10,
+    speed: 150,
+    size: 50,
+    direction: "right"
+  }),
+
+  new Car({
+    x: 0,
+    y: 11,
+    speed: 100,
+    size: 50,
+    direction: "left"
+  }),
+
+  new Car({
+    x: 12,
+    y: 12,
+    speed: 100,
+    size: 50,
+    direction: "right"
+  }),
+
+  new Car({
+    x: 12,
+    y: 13,
+    speed: 50,
+    size: 50,
+    direction: "right"
+  }),
+
+  new Car({
+    x: 0,
+    y: 14,
+    speed: 100,
+    size: 50,
+    direction: "left"
+  })
+];
+
 class Game {
   constructor(options) {
     this.rows = options.rows;
@@ -8,17 +50,58 @@ class Game {
     this.gameOver = window.requestAnimationFrame;
   }
 
-  _obstacle() {
-    const cars = [];
+  // _obstacle() {
+  // cars = [
+  //   new Car({
+  //     x: 12,
+  //     y: 10,
+  //     speed: 100,
+  //     size: 50,
+  //     direction: "right"
+  //   }),
 
-    setInterval(() => {
-      cars.push(
-        new Car({
-          x: 4
-        })
-      );
-    }, 1000);
-  }
+  //   new Car({
+  //     x: 12,
+  //     y: 11,
+  //     speed: 100,
+  //     size: 50,
+  //     direction: "left"
+  //   }),
+
+  //   new Car({
+  //     x: 12,
+  //     y: 12,
+  //     speed: 100,
+  //     size: 50,
+  //     direction: "right"
+  //   }),
+
+  //   new Car({
+  //     x: 12,
+  //     y: 13,
+  //     speed: 100,
+  //     size: 50,
+  //     direction: "right"
+  //   }),
+
+  //   new Car({
+  //     x: 12,
+  //     y: 14,
+  //     speed: 100,
+  //     size: 50,
+  //     direction: "left"
+  //   }),
+  // ];
+  // const direction = Math.floor(Math.random * 2);
+
+  // setInterval(() => {
+  //   cars.push(
+  //     new Car({
+  //       x: Math.floor(Math.random * 5)
+  //     })
+  //   );
+  // }, 1000);
+  // }
 
   _drawBoard() {
     this.ctx.fillStyle = "#000000";
@@ -40,11 +123,20 @@ class Game {
   }
 
   _drawCar() {
-    this.ctx.fillStyle = "red";
-    this.ctx.fillRect(car.x * 50, car.y * 50, car.size, car.size);
-    if (car.x < -2 || car.x > 12) {
-      car.x = 12;
-    }
+    cars.forEach(car => {
+      this.ctx.fillStyle = "red";
+      this.ctx.fillRect(car.x * 50, car.y * 50, car.size, car.size);
+      if (car.direction === "right") {
+        if (car.x < -1 || car.x > 12) {
+          car.x = 12;
+        }
+      }
+      if (car.direction === "left") {
+        if (car.x < -1 || car.x > 12) {
+          car.x = 0;
+        }
+      }
+    });
   }
 
   _controlsToKeys() {
@@ -67,15 +159,19 @@ class Game {
   }
 
   _update() {
-    if (this.froggy.collides(car)) {
-      alert("you're dead");
-    } else {
-      this._drawBoard();
-      this._drawFroggy();
-      this._drawCar();
+    // cars.forEach(
+    //   car => {
+    // if (this.froggy.collides(car)) {
+    //   alert("you're dead");
+    // } else {
+    this._drawBoard();
+    this._drawFroggy();
+    this._drawCar();
 
-      window.requestAnimationFrame(this._update.bind(this));
-    }
+    window.requestAnimationFrame(this._update.bind(this));
+    //   }
+    //   // }
+    // );
   }
 
   _gameOver() {
@@ -84,7 +180,10 @@ class Game {
 
   _start() {
     this._controlsToKeys();
-    car.move();
+    cars.forEach(car => {
+      car.move();
+    });
+    // car.move();
     window.requestAnimationFrame(this._update.bind(this));
   }
 }
