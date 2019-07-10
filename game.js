@@ -54,28 +54,28 @@ const trees = [
     speed: 200,
     size: 150,
     direction: "left"
+  }),
+  new Tree({
+    x: 0,
+    y: 6,
+    speed: 100,
+    size: 250,
+    direction: "left"
+  }),
+  new Tree({
+    x: 12,
+    y: 5,
+    speed: 200,
+    size: 100,
+    direction: "right"
+  }),
+  new Tree({
+    x: 0,
+    y: 4,
+    speed: 100,
+    size: 200,
+    direction: "left"
   })
-  // new Tree({
-  //   x: 0,
-  //   y: 6,
-  //   speed: 100,
-  //   size: 250,
-  //   direction: "left"
-  // }),
-  // new Tree({
-  //   x: 12,
-  //   y: 5,
-  //   speed: 200,
-  //   size: 100,
-  //   direction: "right"
-  // }),
-  // new Tree({
-  //   x: 0,
-  //   y: 4,
-  //   speed: 100,
-  //   size: 200,
-  //   direction: "left"
-  // })
 ];
 
 class Game {
@@ -224,13 +224,52 @@ class Game {
       }
     });
 
-    trees.forEach(tree => {
-      if (this.froggy.isTransportedBy(tree)) {
-        alert("you're dead");
-        this.froggy.body.column = 6;
-        this.froggy.body.row = 15;
-      }
-    });
+    // trees.forEach(tree => {
+    switch (this.froggy.body.row) {
+      case 8:
+        if (this.froggy.isTransportedBy(trees[0])) {
+          alert("you're dead");
+          this.froggy.body.column = 6;
+          this.froggy.body.row = 15;
+        }
+        break;
+
+      case 7:
+        if (this.froggy.isTransportedBy(trees[1])) {
+          alert("you're dead");
+          this.froggy.body.column = 6;
+          this.froggy.body.row = 15;
+        }
+        break;
+
+      case 6:
+        if (this.froggy.isTransportedBy(trees[2])) {
+          alert("you're dead");
+          this.froggy.body.column = 6;
+          this.froggy.body.row = 15;
+        }
+        break;
+
+      case 5:
+        if (this.froggy.isTransportedBy(trees[3])) {
+          alert("you're dead");
+          this.froggy.body.column = 6;
+          this.froggy.body.row = 15;
+        }
+        break;
+
+      case 4:
+        if (this.froggy.isTransportedBy(trees[4])) {
+          alert("you're dead");
+          this.froggy.body.column = 6;
+          this.froggy.body.row = 15;
+        }
+        break;
+
+      default:
+        break;
+    }
+    // });
 
     if (this.froggy.lives > 0) {
       this._drawBoard();
@@ -239,9 +278,11 @@ class Game {
       this._drawFroggy();
 
       if (this.froggy.body.row === 3) {
-        alert("you win!");
-        this.froggy.body.column = 6;
-        this.froggy.body.row = 15;
+        setTimeout(() => {
+          alert("you win!");
+          this.froggy.body.column = 6;
+          this.froggy.body.row = 15;
+        }, 100);
       }
 
       window.requestAnimationFrame(this._update.bind(this));
