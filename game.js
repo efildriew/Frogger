@@ -162,7 +162,8 @@ class Game {
     cars.forEach(car => {
       if (this.froggy.collides(car)) {
         alert("you're dead");
-        // this._gameOver();
+        this.froggy.body.column = 6;
+        this.froggy.body.row = 15;
       }
     });
     this._drawBoard();
