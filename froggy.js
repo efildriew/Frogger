@@ -5,6 +5,7 @@ class Froggy {
       column: 6,
       row: 15
     };
+    this.lives = 3;
   }
 
   moveUp() {
@@ -61,6 +62,7 @@ class Froggy {
     ) {
       return false;
     }
+    this.lives -= 1;
     return true;
   }
 }

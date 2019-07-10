@@ -166,12 +166,16 @@ class Game {
         this.froggy.body.row = 15;
       }
     });
-    this._drawBoard();
-    this._drawFroggy();
-    this._drawCar();
 
-    if (this.intervalGame !== undefined) {
+    if (this.froggy.lives > 0) {
+      this._drawBoard();
+      this._drawFroggy();
+      this._drawCar();
+
       window.requestAnimationFrame(this._update.bind(this));
+    } else {
+      this.ctx.clearRect(0, 0, 600, 800);
+      window.cancelAnimationFrame(this._update.bind(this));
     }
   }
 
