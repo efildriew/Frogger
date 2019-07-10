@@ -47,9 +47,9 @@ class Froggy {
     var froggyRight = this.body.column * 50 + 50;
 
     var carLeft = carPosition.x * 50;
-    var carRight = carPosition.x * 50 + 50;
+    var carRight = carPosition.x * 50 + carPosition.size;
     var carTop = carPosition.y * 50 + 50;
-    var carBottom = carPosition.y * 50;
+    var carBottom = carPosition.y * carPosition.size;
 
     if (
       froggyBottom < carTop ||
@@ -84,7 +84,6 @@ class Froggy {
         this.lives -= 1;
         return true;
       }
-      this.body.column = treePosition.x;
       return false;
     }
   }
