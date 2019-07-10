@@ -47,7 +47,7 @@ class Game {
     this.maxCells = options.maxCells;
     this.ctx = options.ctx;
     this.froggy = options.froggy;
-    this.gameOver = window.requestAnimationFrame;
+    this.gameOver = undefined;
   }
 
   // _obstacle() {
@@ -159,23 +159,23 @@ class Game {
   }
 
   _update() {
-    // cars.forEach(
-    //   car => {
-    // if (this.froggy.collides(car)) {
-    //   alert("you're dead");
-    // } else {
+    cars.forEach(car => {
+      if (this.froggy.collides(car)) {
+        alert("you're dead");
+        // this._gameOver();
+      }
+    });
     this._drawBoard();
     this._drawFroggy();
     this._drawCar();
 
-    window.requestAnimationFrame(this._update.bind(this));
-    //   }
-    //   // }
-    // );
+    if (this.intervalGame !== undefined) {
+      window.requestAnimationFrame(this._update.bind(this));
+    }
   }
 
   _gameOver() {
-    window.cancelAnimationFrame(this.gameOver);
+    window.cancelAnimationFrame(this._update.bind(this));
   }
 
   _start() {
@@ -184,6 +184,6 @@ class Game {
       car.move();
     });
     // car.move();
-    window.requestAnimationFrame(this._update.bind(this));
+    this.intervalGame = window.requestAnimationFrame(this._update.bind(this));
   }
 }
