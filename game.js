@@ -40,6 +40,16 @@ const cars = [
   })
 ];
 
+const trees = [
+  new Tree({
+    x: 12,
+    y: 8,
+    speed: 150,
+    size: 100,
+    direction: "right"
+  })
+];
+
 class Game {
   constructor(options) {
     this.rows = options.rows;
@@ -127,7 +137,7 @@ class Game {
   _drawCar() {
     cars.forEach(car => {
       this.ctx.fillStyle = "red";
-      this.ctx.fillRect(car.x * 50, car.y * 50, car.size, car.size);
+      this.ctx.fillRect(car.x * 50, car.y * 50, car.size, 50);
       if (car.direction === "right") {
         if (car.x < -1 || car.x > 12) {
           car.x = 12;
@@ -136,6 +146,23 @@ class Game {
       if (car.direction === "left") {
         if (car.x < -1 || car.x > 12) {
           car.x = 0;
+        }
+      }
+    });
+  }
+
+  _drawTree() {
+    trees.forEach(tree => {
+      this.ctx.fillStyle = "brown";
+      this.ctx.fillRect(tree.x * 50, tree.y * 50, tree.size, 50);
+      if (tree.direction === "right") {
+        if (tree.x < -1 || tree.x > 12) {
+          tree.x = 12;
+        }
+      }
+      if (tree.direction === "left") {
+        if (tree.x < -1 || tree.x > 12) {
+          tree.x = 0;
         }
       }
     });
@@ -173,6 +200,7 @@ class Game {
       this._drawBoard();
       this._drawFroggy();
       this._drawCar();
+      this._drawTree();
 
       if (this.froggy.body.row === 3) {
         alert("you win!");
@@ -198,6 +226,9 @@ class Game {
     this._controlsToKeys();
     cars.forEach(car => {
       car.move();
+    });
+    trees.forEach(tree => {
+      tree.move();
     });
     this.intervalGame = window.requestAnimationFrame(this._update.bind(this));
   }
