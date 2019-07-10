@@ -174,9 +174,12 @@ class Game {
 
       window.requestAnimationFrame(this._update.bind(this));
     } else {
-      this.ctx.clearRect(200, 200, 200, 400);
+      this.ctx.clearRect(150, 150, 300, 500);
       //añadir pantalla de game over
       window.cancelAnimationFrame(this._update.bind(this));
+      setTimeout(() => {
+        location.reload();
+      }, 5000);
     }
   }
 
