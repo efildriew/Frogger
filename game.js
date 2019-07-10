@@ -172,11 +172,16 @@ class Game {
       this._drawFroggy();
       this._drawCar();
 
+      if (this.froggy.body.row === 3) {
+        alert("you win!");
+        this.froggy.body.column = 6;
+        this.froggy.body.row = 15;
+      }
+
       window.requestAnimationFrame(this._update.bind(this));
     } else {
       this.ctx.clearRect(150, 150, 300, 500);
       //añadir pantalla de game over
-      window.cancelAnimationFrame(this._update.bind(this));
       setTimeout(() => {
         location.reload();
       }, 5000);
@@ -192,7 +197,6 @@ class Game {
     cars.forEach(car => {
       car.move();
     });
-    // car.move();
     this.intervalGame = window.requestAnimationFrame(this._update.bind(this));
   }
 }

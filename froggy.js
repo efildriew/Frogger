@@ -11,9 +11,6 @@ class Froggy {
   moveUp() {
     this.direction = "up";
     this.body.row -= 1;
-    if (this.body.row < 0) {
-      alert("You win!");
-    }
   }
 
   moveDown() {
@@ -64,5 +61,10 @@ class Froggy {
     }
     this.lives -= 1;
     return true;
+    // this.body.column = carPosition.x;
   }
+
+  // isTransportedBy(trunk) {
+
+  // }
 }
