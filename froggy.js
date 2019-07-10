@@ -64,7 +64,24 @@ class Froggy {
     // this.body.column = carPosition.x;
   }
 
-  // isTransportedBy(trunk) {
+  isTransportedBy(treePosition) {
+    var froggyTop = this.body.row * 50;
+    var froggyBottom = this.body.row * 50 + 50;
+    var froggyLeft = this.body.column * 50;
+    var froggyRight = this.body.column * 50 + 50;
 
-  // }
+    var treeLeft = treePosition.x * 50;
+    var treeRight = treePosition.x * 50 + 50;
+    var treeTop = treePosition.y * 50 + 50;
+    var treeBottom = treePosition.y * 50;
+
+    if (
+      froggyBottom < treeTop ||
+      froggyTop > treeBottom ||
+      froggyRight < treeLeft ||
+      froggyLeft > treeRight
+    ) {
+      return false;
+    }
+  }
 }

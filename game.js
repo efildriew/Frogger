@@ -196,11 +196,17 @@ class Game {
       }
     });
 
+    // trees.forEach(tree => {
+    //   if (this.froggy.isTransportedBy(tree)) {
+
+    //   }
+    // });
+
     if (this.froggy.lives > 0) {
       this._drawBoard();
-      this._drawFroggy();
       this._drawCar();
       this._drawTree();
+      this._drawFroggy();
 
       if (this.froggy.body.row === 3) {
         alert("you win!");
