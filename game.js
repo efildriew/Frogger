@@ -110,6 +110,8 @@ class Game {
     this.ctx.fillRect(0, 100, 600, 100);
     this.ctx.fillRect(0, 450, 600, 50);
     this.ctx.fillRect(0, 750, 600, 800);
+    this.ctx.fillStyle = "#00046E";
+    this.ctx.fillRect(0, 200, 600, 250);
   }
 
   _drawFroggy() {
