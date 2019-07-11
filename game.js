@@ -280,15 +280,17 @@ class Game {
       if (this.froggy.body.row === 3) {
         setTimeout(() => {
           alert("you win!");
-          this.froggy.body.column = 6;
-          this.froggy.body.row = 15;
-        }, 100);
+        }, 10);
+        this.froggy.body.column = 6;
+        this.froggy.body.row = 15;
       }
 
       window.requestAnimationFrame(this._update.bind(this));
     } else {
       this.ctx.clearRect(150, 150, 300, 500);
+
       //añadir pantalla de game over
+
       setTimeout(() => {
         location.reload();
       }, 3000);
