@@ -154,12 +154,14 @@ class Game {
 
   _drawFroggy() {
     this.ctx.fillStyle = "#00FF3C";
-    this.ctx.fillRect(
-      this.froggy.body.column * 50,
-      this.froggy.body.row * 50,
-      50,
-      50
-    );
+    if (this.froggy.isSurfing === false) {
+      this.ctx.fillRect(
+        this.froggy.body.column * 50,
+        this.froggy.body.row * 50,
+        50,
+        50
+      );
+    }
   }
 
   _drawCar() {
@@ -224,6 +226,12 @@ class Game {
       }
     });
 
+    if (this.froggy.column >= 8 && this.froggy.column <= 4) {
+      this.froggy.isSurfing = true;
+    } else {
+      this.froggy.isSurfing = false;
+    }
+
     // trees.forEach(tree => {
     switch (this.froggy.body.row) {
       case 8:
@@ -231,6 +239,8 @@ class Game {
           alert("you're dead");
           this.froggy.body.column = 6;
           this.froggy.body.row = 15;
+        } else {
+          // this.froggy.body.column = trees[0].x;
         }
         break;
 
