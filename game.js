@@ -367,6 +367,8 @@ class Game {
           alert("you're dead");
           this.froggy.body.column = 6;
           this.froggy.body.row = 15;
+        } else {
+          this.froggy.body.column -= 0.0225;
         }
         break;
 
