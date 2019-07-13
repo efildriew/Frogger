@@ -335,7 +335,12 @@ class Game {
           this.froggy.body.column = 6;
           this.froggy.body.row = 15;
         } else {
-          // this.froggy.body.column = trees[0].x;
+          // var surfing = this.froggy.body.column * 50;
+          // console.log(this.froggy.body.column);
+          // surfing -= 0.25;
+          // this.froggy.body.column = surfing;
+          // console.log(this.froggy.body.column);
+          this.froggy.body.column -= 0.0275;
         }
         break;
 
