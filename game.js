@@ -350,7 +350,7 @@ class Game {
           this.froggy.body.column = 6;
           this.froggy.body.row = 15;
         } else {
-          this.froggy.body.column += 0.0225;
+          this.froggy.body.column += 0.0215;
         }
         break;
 
@@ -359,6 +359,8 @@ class Game {
           alert("you're dead");
           this.froggy.body.column = 6;
           this.froggy.body.row = 15;
+        } else {
+          this.froggy.body.column += 0.04;
         }
         break;
 
@@ -368,7 +370,7 @@ class Game {
           this.froggy.body.column = 6;
           this.froggy.body.row = 15;
         } else {
-          this.froggy.body.column -= 0.0225;
+          this.froggy.body.column -= 0.0215;
         }
         break;
 
@@ -377,6 +379,8 @@ class Game {
           alert("you're dead");
           this.froggy.body.column = 6;
           this.froggy.body.row = 15;
+        } else {
+          this.froggy.body.column += 0.04;
         }
         break;
 
