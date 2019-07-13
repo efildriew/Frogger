@@ -144,18 +144,21 @@ class Game {
   _drawBoard() {
     this.ctx.fillStyle = "#000000";
     this.ctx.fillRect(0, 0, 600, 800);
-    this.ctx.fillStyle = "#FF7700";
-    this.ctx.fillRect(0, 100, 600, 100);
-    this.ctx.fillRect(0, 450, 600, 50);
-    this.ctx.fillRect(0, 750, 600, 800);
     this.ctx.fillStyle = "#00046E";
-    this.ctx.fillRect(0, 200, 600, 250);
+    this.ctx.fillRect(0, 100, 600, 350);
+    this.ctx.drawImage(sprites, 0, 119, 400, 34, 0, 100, 600, 100);
+    this.ctx.drawImage(sprites, 0, 119, 400, 34, 0, 450, 600, 50);
+    this.ctx.drawImage(sprites, 0, 119, 400, 34, 0, 750, 600, 50);
   }
 
   _drawFroggy() {
-    this.ctx.fillStyle = "#00FF3C";
     if (this.froggy.isSurfing === false) {
-      this.ctx.fillRect(
+      this.ctx.drawImage(
+        sprites,
+        13,
+        370,
+        21,
+        16,
         this.froggy.body.column * 50,
         this.froggy.body.row * 50,
         50,
