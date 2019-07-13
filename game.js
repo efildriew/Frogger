@@ -3,7 +3,7 @@ const cars = [
     x: 12,
     y: 10,
     speed: 150,
-    size: 50,
+    size: 100,
     direction: "right"
   }),
 
@@ -28,7 +28,7 @@ const cars = [
     y: 13,
     speed: 50,
     size: 50,
-    direction: "right"
+    direction: "left"
   }),
 
   new Car({
@@ -36,7 +36,7 @@ const cars = [
     y: 14,
     speed: 100,
     size: 50,
-    direction: "left"
+    direction: "right"
   })
 ];
 
@@ -168,9 +168,92 @@ class Game {
   }
 
   _drawCar() {
-    cars.forEach(car => {
-      this.ctx.fillStyle = "red";
-      this.ctx.fillRect(car.x * 50, car.y * 50, car.size, 50);
+    cars.forEach((car, index) => {
+      switch (index) {
+        case 4:
+          this.ctx.drawImage(
+            sprites,
+            82,
+            264,
+            24,
+            26,
+            car.x * 50,
+            car.y * 50,
+            car.size,
+            50
+          );
+          break;
+
+        case 3:
+          this.ctx.drawImage(
+            sprites,
+            11,
+            301,
+            21,
+            24,
+            car.x * 50,
+            car.y * 50,
+            car.size,
+            50
+          );
+          break;
+
+        case 2:
+          this.ctx.drawImage(
+            sprites,
+            10,
+            267,
+            28,
+            20,
+            car.x * 50,
+            car.y * 50,
+            car.size,
+            50
+          );
+          break;
+
+        case 1:
+          this.ctx.drawImage(
+            sprites,
+            47,
+            265,
+            27,
+            24,
+            car.x * 50,
+            car.y * 50,
+            car.size,
+            50
+          );
+          break;
+
+        case 0:
+          this.ctx.drawImage(
+            sprites,
+            106,
+            302,
+            46,
+            18,
+            car.x * 50,
+            car.y * 50,
+            car.size,
+            50
+          );
+          break;
+
+        default:
+          break;
+      }
+      // this.ctx.drawImage(
+      //   sprites,
+      //   82,
+      //   264,
+      //   24,
+      //   26,
+      //   car.x * 50,
+      //   car.y * 50,
+      //   car.size,
+      //   50
+      // );
       if (car.direction === "right") {
         if (car.x < -2 || car.x > 12) {
           car.x = 12;
@@ -186,8 +269,17 @@ class Game {
 
   _drawTree() {
     trees.forEach(tree => {
-      this.ctx.fillStyle = "brown";
-      this.ctx.fillRect(tree.x * 50, tree.y * 50, tree.size, 50);
+      this.ctx.drawImage(
+        sprites,
+        7,
+        230,
+        83,
+        21,
+        tree.x * 50,
+        tree.y * 50,
+        tree.size,
+        50
+      );
       if (tree.direction === "right") {
         if (tree.x < -5 || tree.x > 12) {
           tree.x = 12;
