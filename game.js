@@ -405,7 +405,10 @@ class Game {
 
       window.requestAnimationFrame(this._update.bind(this));
     } else {
-      this.ctx.clearRect(150, 150, 300, 500);
+      this.ctx.fillStyle = "black";
+      this.ctx.fillRect(250, 450, 150, 50);
+      this.ctx.strokeStyle = "red";
+      this.ctx.strokeText("GAME OVER", 320, 480, 140);
 
       //añadir pantalla de game over
 
