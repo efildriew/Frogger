@@ -88,59 +88,6 @@ class Game {
     this.gameOver = undefined;
   }
 
-  // _obstacle() {
-  // cars = [
-  //   new Car({
-  //     x: 12,
-  //     y: 10,
-  //     speed: 100,
-  //     size: 50,
-  //     direction: "right"
-  //   }),
-
-  //   new Car({
-  //     x: 12,
-  //     y: 11,
-  //     speed: 100,
-  //     size: 50,
-  //     direction: "left"
-  //   }),
-
-  //   new Car({
-  //     x: 12,
-  //     y: 12,
-  //     speed: 100,
-  //     size: 50,
-  //     direction: "right"
-  //   }),
-
-  //   new Car({
-  //     x: 12,
-  //     y: 13,
-  //     speed: 100,
-  //     size: 50,
-  //     direction: "right"
-  //   }),
-
-  //   new Car({
-  //     x: 12,
-  //     y: 14,
-  //     speed: 100,
-  //     size: 50,
-  //     direction: "left"
-  //   }),
-  // ];
-  // const direction = Math.floor(Math.random * 2);
-
-  // setInterval(() => {
-  //   cars.push(
-  //     new Car({
-  //       x: Math.floor(Math.random * 5)
-  //     })
-  //   );
-  // }, 1000);
-  // }
-
   _drawBoard() {
     this.ctx.fillStyle = "#000000";
     this.ctx.fillRect(0, 0, 600, 800);
@@ -152,19 +99,17 @@ class Game {
   }
 
   _drawFroggy() {
-    if (this.froggy.isSurfing === false) {
-      this.ctx.drawImage(
-        sprites,
-        13,
-        370,
-        21,
-        16,
-        this.froggy.body.column * 50,
-        this.froggy.body.row * 50,
-        50,
-        50
-      );
-    }
+    this.ctx.drawImage(
+      sprites,
+      13,
+      370,
+      21,
+      16,
+      this.froggy.body.column * 50,
+      this.froggy.body.row * 50,
+      50,
+      50
+    );
   }
 
   _drawCar() {
@@ -243,17 +188,6 @@ class Game {
         default:
           break;
       }
-      // this.ctx.drawImage(
-      //   sprites,
-      //   82,
-      //   264,
-      //   24,
-      //   26,
-      //   car.x * 50,
-      //   car.y * 50,
-      //   car.size,
-      //   50
-      // );
       if (car.direction === "right") {
         if (car.x < -2 || car.x > 12) {
           car.x = 12;
@@ -321,13 +255,6 @@ class Game {
       }
     });
 
-    if (this.froggy.column >= 8 && this.froggy.column <= 4) {
-      this.froggy.isSurfing = true;
-    } else {
-      this.froggy.isSurfing = false;
-    }
-
-    // trees.forEach(tree => {
     switch (this.froggy.body.row) {
       case 8:
         if (this.froggy.isTransportedBy(trees[0])) {
@@ -335,11 +262,6 @@ class Game {
           this.froggy.body.column = 6;
           this.froggy.body.row = 15;
         } else {
-          // var surfing = this.froggy.body.column * 50;
-          // console.log(this.froggy.body.column);
-          // surfing -= 0.25;
-          // this.froggy.body.column = surfing;
-          // console.log(this.froggy.body.column);
           this.froggy.body.column -= 0.0275;
         }
         break;
@@ -387,7 +309,6 @@ class Game {
       default:
         break;
     }
-    // });
 
     if (this.froggy.lives > 0) {
       this._drawBoard();
@@ -409,6 +330,22 @@ class Game {
           this.froggy.body.column = 6;
           this.froggy.body.row = 15;
           this.froggy.homes[0] = true;
+        } else if (
+          this.froggy.body.column > 3 &&
+          this.froggy.body.column < 4 &&
+          this.froggy.homes[1] === false
+        ) {
+          this.froggy.body.column = 6;
+          this.froggy.body.row = 15;
+          this.froggy.homes[1] = true;
+        } else if (
+          this.froggy.body.column > 5 &&
+          this.froggy.body.column < 6 &&
+          this.froggy.homes[2] === false
+        ) {
+          this.froggy.body.column = 6;
+          this.froggy.body.row = 15;
+          this.froggy.homes[2] = true;
         }
       }
 
@@ -417,6 +354,34 @@ class Game {
           switch (index) {
             case 0:
               this.ctx.drawImage(frogFinish, 488, 176, 16, 16, 10, 150, 40, 40);
+              break;
+
+            case 1:
+              this.ctx.drawImage(
+                frogFinish,
+                488,
+                176,
+                16,
+                16,
+                145,
+                150,
+                40,
+                40
+              );
+              break;
+
+            case 2:
+              this.ctx.drawImage(
+                frogFinish,
+                488,
+                176,
+                16,
+                16,
+                280,
+                150,
+                40,
+                40
+              );
               break;
 
             default:

@@ -7,7 +7,6 @@ class Froggy {
     };
     this.lives = 3;
     this.interval = undefined;
-    this.isSurfing = false;
     this.homes = [false, false, false, false, false];
   }
 
@@ -87,15 +86,6 @@ class Froggy {
         this.lives -= 1;
         return true;
       }
-      // this.isSurfing(treePosition.speed);
-      // if (treePosition.direction === "left") {
-      //   this.body.column = froggyLeft;
-      // } else if (treePosition.direction === "right") {
-      //   this.body.column = froggyRight;
-      // }
-
-      // this.body.column = treePosition.x;
-
       if (this.body.column <= 0) {
         this.body.column = 0;
       }
@@ -107,16 +97,4 @@ class Froggy {
       return false;
     }
   }
-
-  // isSurfingAlong(direction, x) {
-  //   if (direction === "left") {
-  //     this.body.column = x - this.body.column;
-  //   } else if (direction === "right") {
-  //     this.body.column = x - this.body.column;
-  //   }
-  // }
-
-  // isSurfing(speed) {
-  //   this.interval = setInterval(this.isSurfingAlong.bind(this), speed);
-  // }
 }
