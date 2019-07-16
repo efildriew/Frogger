@@ -396,12 +396,34 @@ class Game {
       this._drawFroggy();
 
       if (this.froggy.body.row === 3) {
-        setTimeout(() => {
-          alert("you win!");
-        }, 10);
-        this.froggy.body.column = 6;
-        this.froggy.body.row = 15;
+        // setTimeout(() => {
+        //   alert("you win!");
+        // }, 10);
+        // this.froggy.body.column = 6;
+        // this.froggy.body.row = 15;
+        if (
+          this.froggy.body.column > 0 &&
+          this.froggy.body.column < 1 &&
+          this.froggy.homes[0] === false
+        ) {
+          this.froggy.body.column = 6;
+          this.froggy.body.row = 15;
+          this.froggy.homes[0] = true;
+        }
       }
+
+      this.froggy.homes.forEach((isHome, index) => {
+        if (isHome) {
+          switch (index) {
+            case 0:
+              this.ctx.drawImage(frogFinish, 488, 176, 16, 16, 10, 150, 40, 40);
+              break;
+
+            default:
+              break;
+          }
+        }
+      });
 
       window.requestAnimationFrame(this._update.bind(this));
     } else {
@@ -409,8 +431,6 @@ class Game {
       this.ctx.fillRect(250, 450, 150, 50);
       this.ctx.strokeStyle = "red";
       this.ctx.strokeText("GAME OVER", 320, 480, 140);
-
-      //añadir pantalla de game over
 
       setTimeout(() => {
         location.reload();
