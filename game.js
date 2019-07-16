@@ -354,6 +354,19 @@ class Game {
           this.froggy.body.column = 6;
           this.froggy.body.row = 15;
           this.froggy.homes[3] = true;
+        } else if (
+          this.froggy.body.column > 11 &&
+          this.froggy.body.column < 12 &&
+          this.froggy.homes[4] === false
+        ) {
+          this.froggy.body.column = 6;
+          this.froggy.body.row = 15;
+          this.froggy.homes[4] = true;
+        } else {
+          alert("you're dead");
+          this.froggy.body.column = 6;
+          this.froggy.body.row = 15;
+          this.froggy.lives -= 1;
         }
       }
 
@@ -404,6 +417,21 @@ class Game {
                 40,
                 40
               );
+              break;
+
+            case 4:
+              this.ctx.drawImage(
+                frogFinish,
+                488,
+                176,
+                16,
+                16,
+                550,
+                150,
+                40,
+                40
+              );
+              break;
 
             default:
               break;
@@ -413,19 +441,20 @@ class Game {
 
       window.requestAnimationFrame(this._update.bind(this));
     } else {
-      this.ctx.fillStyle = "black";
-      this.ctx.fillRect(250, 450, 150, 50);
-      this.ctx.strokeStyle = "red";
-      this.ctx.strokeText("GAME OVER", 320, 480, 140);
-
-      setTimeout(() => {
-        location.reload();
-      }, 3000);
+      this._gameOver();
     }
   }
 
   _gameOver() {
     window.cancelAnimationFrame(this._update.bind(this));
+    this.ctx.fillStyle = "black";
+    this.ctx.fillRect(250, 450, 150, 50);
+    this.ctx.strokeStyle = "red";
+    this.ctx.strokeText("GAME OVER", 320, 480, 140);
+
+    setTimeout(() => {
+      location.reload();
+    }, 3000);
   }
 
   _start() {
