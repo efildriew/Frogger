@@ -346,6 +346,14 @@ class Game {
           this.froggy.body.column = 6;
           this.froggy.body.row = 15;
           this.froggy.homes[2] = true;
+        } else if (
+          this.froggy.body.column > 8 &&
+          this.froggy.body.column < 9 &&
+          this.froggy.homes[3] === false
+        ) {
+          this.froggy.body.column = 6;
+          this.froggy.body.row = 15;
+          this.froggy.homes[3] = true;
         }
       }
 
@@ -383,6 +391,19 @@ class Game {
                 40
               );
               break;
+
+            case 3:
+              this.ctx.drawImage(
+                frogFinish,
+                488,
+                176,
+                16,
+                16,
+                415,
+                150,
+                40,
+                40
+              );
 
             default:
               break;
