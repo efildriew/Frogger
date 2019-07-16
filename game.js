@@ -49,14 +49,14 @@ const trees = [
     direction: "right"
   }),
   new Tree({
-    x: 0,
+    x: -4,
     y: 7,
     speed: 200,
     size: 150,
     direction: "left"
   }),
   new Tree({
-    x: 0,
+    x: -6,
     y: 6,
     speed: 100,
     size: 250,
@@ -70,7 +70,7 @@ const trees = [
     direction: "right"
   }),
   new Tree({
-    x: 0,
+    x: -5,
     y: 4,
     speed: 100,
     size: 200,
@@ -287,7 +287,7 @@ class Game {
       }
       if (tree.direction === "left") {
         if (tree.x < -5 || tree.x > 12) {
-          tree.x = 0;
+          tree.x = -5;
         }
       }
     });
