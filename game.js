@@ -146,7 +146,7 @@ class Game {
     this.ctx.fillRect(0, 0, 600, 800);
     this.ctx.fillStyle = "#00046E";
     this.ctx.fillRect(0, 100, 600, 350);
-    this.ctx.drawImage(sprites, 0, 119, 400, 34, 0, 100, 600, 100);
+    this.ctx.drawImage(sprites, 8, 55, 376, 54, 0, 100, 600, 100);
     this.ctx.drawImage(sprites, 0, 119, 400, 34, 0, 450, 600, 50);
     this.ctx.drawImage(sprites, 0, 119, 400, 34, 0, 750, 600, 50);
   }
@@ -168,9 +168,9 @@ class Game {
   }
 
   _drawCar() {
-    cars.forEach((car, index) => {
-      switch (index) {
-        case 4:
+    cars.forEach(car => {
+      switch (car.y) {
+        case 14:
           this.ctx.drawImage(
             sprites,
             82,
@@ -184,7 +184,7 @@ class Game {
           );
           break;
 
-        case 3:
+        case 13:
           this.ctx.drawImage(
             sprites,
             11,
@@ -198,7 +198,7 @@ class Game {
           );
           break;
 
-        case 2:
+        case 12:
           this.ctx.drawImage(
             sprites,
             10,
@@ -212,7 +212,7 @@ class Game {
           );
           break;
 
-        case 1:
+        case 11:
           this.ctx.drawImage(
             sprites,
             47,
@@ -226,7 +226,7 @@ class Game {
           );
           break;
 
-        case 0:
+        case 10:
           this.ctx.drawImage(
             sprites,
             106,
@@ -261,7 +261,7 @@ class Game {
       }
       if (car.direction === "left") {
         if (car.x < -2 || car.x > 12) {
-          car.x = 0;
+          car.x = -1;
         }
       }
     });
