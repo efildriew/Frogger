@@ -86,6 +86,8 @@ class Game {
     this.ctx = options.ctx;
     this.froggy = options.froggy;
     this.gameOver = undefined;
+    this.cars = [];
+    this.trees = [];
   }
 
   _drawBoard() {
