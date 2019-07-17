@@ -368,6 +368,12 @@ class Game {
           this.froggy.body.row = 15;
           this.froggy.lives -= 1;
         }
+
+        if (this.froggy.homes.length === 5) {
+          alert("You win! Next Level");
+
+          // cambiar por pantalla de score, siguiente nivel, o lo que sea
+        }
       }
 
       this.froggy.homes.forEach((isHome, index) => {
