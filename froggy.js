@@ -8,6 +8,7 @@ class Froggy {
     this.lives = 3;
     this.interval = undefined;
     this.homes = [false, false, false, false, false];
+    this.wins = 0;
   }
 
   moveUp() {

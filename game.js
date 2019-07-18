@@ -278,6 +278,7 @@ class Game {
           this.froggy.body.column = 6;
           this.froggy.body.row = 15;
           this.froggy.homes[0] = true;
+          this.froggy.wins + 1;
         } else if (
           this.froggy.body.column > 3 &&
           this.froggy.body.column < 4 &&
@@ -286,6 +287,7 @@ class Game {
           this.froggy.body.column = 6;
           this.froggy.body.row = 15;
           this.froggy.homes[1] = true;
+          this.froggy.wins + 1;
         } else if (
           this.froggy.body.column > 5 &&
           this.froggy.body.column < 6 &&
@@ -294,6 +296,7 @@ class Game {
           this.froggy.body.column = 6;
           this.froggy.body.row = 15;
           this.froggy.homes[2] = true;
+          this.froggy.wins + 1;
         } else if (
           this.froggy.body.column > 8 &&
           this.froggy.body.column < 9 &&
@@ -302,6 +305,7 @@ class Game {
           this.froggy.body.column = 6;
           this.froggy.body.row = 15;
           this.froggy.homes[3] = true;
+          this.froggy.wins + 1;
         } else if (
           this.froggy.body.column > 11 &&
           this.froggy.body.column < 12 &&
@@ -310,6 +314,7 @@ class Game {
           this.froggy.body.column = 6;
           this.froggy.body.row = 15;
           this.froggy.homes[4] = true;
+          this.froggy.wins + 1;
         } else {
           plunk.play();
           this.froggy.body.column = 6;
@@ -317,11 +322,13 @@ class Game {
           this.froggy.lives -= 1;
         }
 
-        // if (this.froggy.homes.length === 5) {
-        //   alert("You win! Next Level");
-
-        // cambiar por pantalla de score, siguiente nivel, o lo que sea
-        // }
+        if (this.froggy.wins === 5) {
+          window.cancelAnimationFrame(this._update.bind(this));
+          this.ctx.drawImage(endGame, 0, 0, 0, 0);
+          setTimeout(() => {
+            location.reload();
+          }, 3000);
+        }
       }
 
       this.froggy.homes.forEach((isHome, index) => {
