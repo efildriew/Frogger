@@ -1,83 +1,3 @@
-const cars = [
-  new Car({
-    x: 12,
-    y: 10,
-    speed: 150,
-    size: 100,
-    direction: "right"
-  }),
-
-  new Car({
-    x: 0,
-    y: 11,
-    speed: 100,
-    size: 50,
-    direction: "left"
-  }),
-
-  new Car({
-    x: 12,
-    y: 12,
-    speed: 100,
-    size: 50,
-    direction: "right"
-  }),
-
-  new Car({
-    x: 12,
-    y: 13,
-    speed: 50,
-    size: 50,
-    direction: "left"
-  }),
-
-  new Car({
-    x: 0,
-    y: 14,
-    speed: 100,
-    size: 50,
-    direction: "right"
-  })
-];
-
-const trees = [
-  new Tree({
-    x: 12,
-    y: 8,
-    speed: 150,
-    size: 150,
-    direction: "right"
-  }),
-  new Tree({
-    x: -4,
-    y: 7,
-    speed: 200,
-    size: 150,
-    direction: "left"
-  }),
-  new Tree({
-    x: -6,
-    y: 6,
-    speed: 100,
-    size: 250,
-    direction: "left"
-  }),
-  new Tree({
-    x: 12,
-    y: 5,
-    speed: 200,
-    size: 100,
-    direction: "right"
-  }),
-  new Tree({
-    x: -5,
-    y: 4,
-    speed: 100,
-    size: 200,
-    direction: "left"
-  })
-];
-
 class Game {
   constructor(options) {
     this.rows = options.rows;
@@ -86,8 +6,6 @@ class Game {
     this.ctx = options.ctx;
     this.froggy = options.froggy;
     this.gameOver = undefined;
-    this.cars = [];
-    this.trees = [];
   }
 
   _drawBoard() {
