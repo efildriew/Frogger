@@ -7,6 +7,13 @@ const trees = [
     direction: "right"
   }),
   new Tree({
+    x: 6,
+    y: 8,
+    speed: 150,
+    size: 150,
+    direction: "right"
+  }),
+  new Tree({
     x: -4,
     y: 7,
     speed: 200,
