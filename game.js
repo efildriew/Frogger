@@ -177,7 +177,10 @@ class Game {
 
     switch (this.froggy.body.row) {
       case 8:
-        if (this.froggy.isTransportedBy(trees[0])) {
+        if (
+          this.froggy.isTransportedBy(trees[0]) ||
+          this.froggy.isTransportedBy(trees[1])
+        ) {
           alert("you're dead");
           this.froggy.body.column = 6;
           this.froggy.body.row = 15;
@@ -187,7 +190,7 @@ class Game {
         break;
 
       case 7:
-        if (this.froggy.isTransportedBy(trees[1])) {
+        if (this.froggy.isTransportedBy(trees[2])) {
           alert("you're dead");
           this.froggy.body.column = 6;
           this.froggy.body.row = 15;
@@ -197,7 +200,7 @@ class Game {
         break;
 
       case 6:
-        if (this.froggy.isTransportedBy(trees[2])) {
+        if (this.froggy.isTransportedBy(trees[3])) {
           alert("you're dead");
           this.froggy.body.column = 6;
           this.froggy.body.row = 15;
@@ -207,7 +210,7 @@ class Game {
         break;
 
       case 5:
-        if (this.froggy.isTransportedBy(trees[3])) {
+        if (this.froggy.isTransportedBy(trees[4])) {
           alert("you're dead");
           this.froggy.body.column = 6;
           this.froggy.body.row = 15;
@@ -217,7 +220,7 @@ class Game {
         break;
 
       case 4:
-        if (this.froggy.isTransportedBy(trees[4])) {
+        if (this.froggy.isTransportedBy(trees[5])) {
           alert("you're dead");
           this.froggy.body.column = 6;
           this.froggy.body.row = 15;
