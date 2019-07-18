@@ -16,6 +16,16 @@ class Game {
     this.ctx.drawImage(sprites, 8, 55, 376, 54, 0, 100, 600, 100);
     this.ctx.drawImage(sprites, 0, 119, 400, 34, 0, 450, 600, 50);
     this.ctx.drawImage(sprites, 0, 119, 400, 34, 0, 750, 600, 50);
+
+    // letras frogger
+
+    this.ctx.drawImage(frogFinish, 17, 368, 15, 15, 20, 20, 40, 60);
+    this.ctx.drawImage(frogFinish, 41, 368, 15, 15, 80, 20, 40, 60);
+    this.ctx.drawImage(frogFinish, 65, 368, 15, 15, 140, 20, 40, 60);
+    this.ctx.drawImage(frogFinish, 89, 368, 15, 15, 200, 20, 40, 60);
+    this.ctx.drawImage(frogFinish, 89, 368, 15, 15, 260, 20, 40, 60);
+    this.ctx.drawImage(frogFinish, 115, 368, 15, 15, 320, 20, 40, 60);
+    this.ctx.drawImage(frogFinish, 41, 368, 15, 15, 380, 20, 40, 60);
   }
 
   _drawFroggy() {
@@ -30,6 +40,28 @@ class Game {
       50,
       50
     );
+  }
+
+  _drawLives() {
+    switch (this.froggy.lives) {
+      case 3:
+        this.ctx.drawImage(frogFinish, 225, 17, 7, 7, 500, 40, 20, 20);
+        this.ctx.drawImage(frogFinish, 225, 17, 7, 7, 530, 40, 20, 20);
+        this.ctx.drawImage(frogFinish, 225, 17, 7, 7, 560, 40, 20, 20);
+        break;
+      case 2:
+        this.ctx.drawImage(frogFinish, 17, 112, 15, 16, 500, 40, 20, 20);
+        this.ctx.drawImage(frogFinish, 225, 17, 7, 7, 530, 40, 20, 20);
+        this.ctx.drawImage(frogFinish, 225, 17, 7, 7, 560, 40, 20, 20);
+        break;
+      case 1:
+        this.ctx.drawImage(frogFinish, 17, 112, 15, 16, 500, 40, 20, 20);
+        this.ctx.drawImage(frogFinish, 17, 112, 15, 16, 530, 40, 20, 20);
+        this.ctx.drawImage(frogFinish, 225, 17, 7, 7, 560, 40, 20, 20);
+        break;
+      default:
+        break;
+    }
   }
 
   _drawCar() {
@@ -169,7 +201,7 @@ class Game {
   _update() {
     cars.forEach(car => {
       if (this.froggy.collides(car)) {
-        alert("you're dead");
+        squash.play();
         this.froggy.body.column = 6;
         this.froggy.body.row = 15;
       }
@@ -177,26 +209,18 @@ class Game {
 
     switch (this.froggy.body.row) {
       case 8:
-        // if (this.froggy.isTransportedBy(trees[0])) {
-        //   if (this.froggy.isTransportedBy(trees[1])) {
-        //     alert("you're dead");
-        //     this.froggy.body.column = 6;
-        //     this.froggy.body.row = 15;
-        //   }
-        trees.forEach(tree => {
-          if (this.froggy.isTransportedBy(tree)) {
-            alert("you're dead");
-            this.froggy.body.column = 6;
-            this.froggy.body.row = 15;
-          } else {
-            this.froggy.body.column -= 0.0275;
-          }
-        });
+        if (this.froggy.isTransportedBy(trees[0])) {
+          plunk.play();
+          this.froggy.body.column = 6;
+          this.froggy.body.row = 15;
+        } else {
+          this.froggy.body.column -= 0.0275;
+        }
         break;
 
       case 7:
-        if (this.froggy.isTransportedBy(trees[2])) {
-          alert("you're dead");
+        if (this.froggy.isTransportedBy(trees[1])) {
+          plunk.play();
           this.froggy.body.column = 6;
           this.froggy.body.row = 15;
         } else {
@@ -205,8 +229,8 @@ class Game {
         break;
 
       case 6:
-        if (this.froggy.isTransportedBy(trees[3])) {
-          alert("you're dead");
+        if (this.froggy.isTransportedBy(trees[2])) {
+          plunk.play();
           this.froggy.body.column = 6;
           this.froggy.body.row = 15;
         } else {
@@ -215,8 +239,8 @@ class Game {
         break;
 
       case 5:
-        if (this.froggy.isTransportedBy(trees[4])) {
-          alert("you're dead");
+        if (this.froggy.isTransportedBy(trees[3])) {
+          plunk.play();
           this.froggy.body.column = 6;
           this.froggy.body.row = 15;
         } else {
@@ -225,8 +249,8 @@ class Game {
         break;
 
       case 4:
-        if (this.froggy.isTransportedBy(trees[5])) {
-          alert("you're dead");
+        if (this.froggy.isTransportedBy(trees[4])) {
+          plunk.play();
           this.froggy.body.column = 6;
           this.froggy.body.row = 15;
         } else {
@@ -240,16 +264,12 @@ class Game {
 
     if (this.froggy.lives > 0) {
       this._drawBoard();
+      this._drawLives();
       this._drawCar();
       this._drawTree();
       this._drawFroggy();
 
       if (this.froggy.body.row === 3) {
-        // setTimeout(() => {
-        //   alert("you win!");
-        // }, 10);
-        // this.froggy.body.column = 6;
-        // this.froggy.body.row = 15;
         if (
           this.froggy.body.column > 0 &&
           this.froggy.body.column < 1 &&
@@ -291,7 +311,7 @@ class Game {
           this.froggy.body.row = 15;
           this.froggy.homes[4] = true;
         } else {
-          alert("you're dead");
+          plunk.play();
           this.froggy.body.column = 6;
           this.froggy.body.row = 15;
           this.froggy.lives -= 1;
@@ -381,6 +401,10 @@ class Game {
 
   _gameOver() {
     window.cancelAnimationFrame(this._update.bind(this));
+    this.ctx.drawImage(frogFinish, 17, 112, 15, 16, 500, 40, 20, 20);
+    this.ctx.drawImage(frogFinish, 17, 112, 15, 16, 530, 40, 20, 20);
+    this.ctx.drawImage(frogFinish, 17, 112, 15, 16, 560, 40, 20, 20);
+
     this.ctx.fillStyle = "black";
     this.ctx.fillRect(250, 450, 150, 50);
     this.ctx.strokeStyle = "red";
