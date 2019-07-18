@@ -177,16 +177,21 @@ class Game {
 
     switch (this.froggy.body.row) {
       case 8:
-        if (
-          this.froggy.isTransportedBy(trees[0]) ||
-          this.froggy.isTransportedBy(trees[1])
-        ) {
-          alert("you're dead");
-          this.froggy.body.column = 6;
-          this.froggy.body.row = 15;
-        } else {
-          this.froggy.body.column -= 0.0275;
-        }
+        // if (this.froggy.isTransportedBy(trees[0])) {
+        //   if (this.froggy.isTransportedBy(trees[1])) {
+        //     alert("you're dead");
+        //     this.froggy.body.column = 6;
+        //     this.froggy.body.row = 15;
+        //   }
+        trees.forEach(tree => {
+          if (this.froggy.isTransportedBy(tree)) {
+            alert("you're dead");
+            this.froggy.body.column = 6;
+            this.froggy.body.row = 15;
+          } else {
+            this.froggy.body.column -= 0.0275;
+          }
+        });
         break;
 
       case 7:
@@ -292,11 +297,11 @@ class Game {
           this.froggy.lives -= 1;
         }
 
-        if (this.froggy.homes.length === 5) {
-          alert("You win! Next Level");
+        // if (this.froggy.homes.length === 5) {
+        //   alert("You win! Next Level");
 
-          // cambiar por pantalla de score, siguiente nivel, o lo que sea
-        }
+        // cambiar por pantalla de score, siguiente nivel, o lo que sea
+        // }
       }
 
       this.froggy.homes.forEach((isHome, index) => {
